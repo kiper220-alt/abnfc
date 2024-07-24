@@ -21,7 +21,7 @@ $(NAME): $(objs) $(ALLDEP)
 	nroff -man $< >$@
 
 %.html: %.in $(ALLDEP)	
-	man2html -r $< >$@
+	man2web -r $< >$@
 
 %.dot: %.rl $(ALLDEP)
 	$(RAGEL) $(RAGELFLAGS) $< |$(RLGENDOT) $(RLGENDOTFLAGS) -o $@
@@ -103,4 +103,3 @@ ifneq (,$(filter-out clean proper print docs diagrams help, $(MAKECMDGOALS)))
 	-include $(depends)
 endif
 				
-
